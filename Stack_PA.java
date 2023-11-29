@@ -89,7 +89,13 @@ public class Stack_PA
      */
     public static void removeFirstOccurrence(Stack<Integer> stack, int element)
     {
-
+        ArrayList<Integer> tempInt = new ArrayList<Integer>();
+        while(!stack.isEmpty())
+            tempInt.add(stack.pop());
+        if(tempInt.lastIndexOf(element) != -1)
+            tempInt.remove(tempInt.lastIndexOf(element));
+        for(int i = tempInt.size() - 1; i >= 0; i--)
+            stack.push(tempInt.get(i));
     }
 
     /* @param stack - is a stack of String values
@@ -102,7 +108,14 @@ public class Stack_PA
      */
     public static void removeAllOccurrences(Stack<String> stack, String element)
     {
-
+        ArrayList<String> tempInt = new ArrayList<String>();
+        while(!stack.isEmpty())
+            tempInt.add(stack.pop());
+        if(tempInt.indexOf(element) != -1)
+            while(tempInt.indexOf(element) != -1)
+                tempInt.remove(tempInt.indexOf(element));
+        for(int i = tempInt.size() - 1; i >= 0; i--)
+            stack.push(tempInt.get(i)); 
     }
 
     /****************** Testing **********************************/
